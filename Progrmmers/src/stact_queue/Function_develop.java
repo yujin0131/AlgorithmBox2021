@@ -12,10 +12,7 @@ public class Function_develop {
 
 		for(int i = 0; i < result.length; i++) {
 			System.out.println(result[i]);
-
 		}
-
-
 	}
 
 	public static int[] solution(int[] progresses, int[] speeds) {
@@ -53,13 +50,13 @@ public class Function_develop {
 				loccount = 0;
 			
 			}
-
-
 		}
+		
 		answer = new int[answerlist.size()];
 		for(int i = 0; i < answer.length; i++) {
 			answer[i] = answerlist.get(i);
 		}
+		
 		return answer;
     
 	}
