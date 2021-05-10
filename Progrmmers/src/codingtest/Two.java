@@ -3,7 +3,11 @@ package codingtest;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Two {
 	/*문제설명
@@ -47,48 +51,61 @@ t	r	result
 
 	public static void main(String[] args) {
 
-		int[] t = {0,1,3,0};
+		int[] t = {0,0,3,0};
 		int[] r = {0,1,2,3};
 		int[] answer = solution(t, r);
+		
 		for(int i =0; i < answer.length; i++) {
-			System.out.println(answer[i]);
+			System.out.println("답 : " + answer[i]);
 		}
 
 	}
+	
 	public static int[] solution(int[] t, int[] r) {
 
-		int check = 0;
-		List anslist = new ArrayList();
-		while(check < 15) {
-			List list = new ArrayList();
-			for(int i =0; i<t.length; i++) {
-				if(t[i] == check) {
-					list.add(i);
-				}
-			}
-			if(list.isEmpty()) {
-			}else if(list.size()>1){
-				int num = r[(int)Collections.min(list)];
-				anslist.add(num);
-				for(int j = 0; j < list.size()-1; j++) {
-					t[] +=1;
-				}
-			}else {
-				anslist.add(list.get(0));
-			}
-			check++;
+		int[] answer = {3,2};
+		Map<Integer, Integer> map = new TreeMap<Integer, Integer>();
+		List list = new ArrayList();
+		
+		for(int i =0; i < r.length; i++) {
+			map.put(r[i], t[i]);
 		}
-
-		int size = 0;
-		int[] answer = new int[anslist.size()];
-
-		for(Object temp : anslist){
-
-			answer[size++] = (int) temp;
-
+		
+		List<Integer> keySetList = new ArrayList<>(map.keySet());
+		
+		Collections.sort(keySetList, (o1, o2) -> (map.get(o1).compareTo(map.get(o2)))); //오름차순 정렬
+		
+		for(Integer key : keySetList) {
+			System.out.println("key : " + key + " / " + "value : " + map.get(key));
 		}
-//		int num = Arrays.binarySearch(t, 0);
-//		System.out.println(num);
+		
+		int count = 0;
+		outer :while(count < t.length) {
+			int checkval = -1;
+			 for(Integer key : keySetList) {
+				if(map.get(key) == checkval) {
+					map.put(key, map.get(key) + 1);
+				
+					Collections.sort(keySetList, (o1, o2) -> (map.get(o1).compareTo(map.get(o2))));
+					System.out.println("///////////////////////");
+					for(Integer num : keySetList) {
+						System.out.println("key : " + num + " / " + "value : " + map.get(num));
+					}
+					continue outer;
+				}else {
+					checkval = map.get(key);
+					System.out.println("오나 1: " + checkval);
+				}
+				count++;
+				
+			}
+		}
+		System.out.println("=============");
+		for(Integer key : keySetList) {
+			System.out.println("key : " + key + " / " + "value : " + map.get(key));
+		}
+		
+		
 		return answer;
 	}
 }
