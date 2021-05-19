@@ -24,8 +24,9 @@ public class Truck {
 				num = wait.size() == 0 ? 0 : wait.poll();
 			}
 
-			for(int i = start; i < start + current.size(); i++) 
+			for(int i = start; i < start + current.size(); i++) {
 				time[i]++;
+			}
 			
 			if(time[start] == bridge_length) {
 				end.add(current.poll());
@@ -50,9 +51,9 @@ public class Truck {
 	}
 	
 	public static void main(String[] args) {
-		int bridge_length = 100;
-		int weight = 100;
-		int[] truck_weights = {10,10,10,10,10,10,10,10,10,10};
+		int bridge_length = 2;
+		int weight = 10;
+		int[] truck_weights = {7,4,5,6};
 
 		int result = solution(bridge_length, weight, truck_weights);
 		System.out.println("결과 : " + result);
