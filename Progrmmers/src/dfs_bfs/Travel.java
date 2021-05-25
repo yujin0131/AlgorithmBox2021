@@ -55,7 +55,9 @@ public class Travel {
 
 
 	public static void main(String[] args) {
-
+		//{"ICN", "A"}, {"ICN", "B"}, {"B", "ICN"}
+		//{"ICN", "SFO"}, {"ICN", "ATL"}, {"SFO", "JEK"}, {"JEK", "HND"}, {"HND","ICN"}
+		
 		String[][] tickets = {{"ICN", "SFO"}, {"ICN", "ATL"}, {"SFO", "ATL"}, {"ATL", "ICN"}, {"ATL","SFO"}};
 		String result[] = solution(tickets);
 
