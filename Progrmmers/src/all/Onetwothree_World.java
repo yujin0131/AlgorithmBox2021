@@ -1,4 +1,5 @@
-public class onetwothree_world {
+package all;
+public class Onetwothree_World {
 	public static String solution(int n) {
 		String answer = "";
 
