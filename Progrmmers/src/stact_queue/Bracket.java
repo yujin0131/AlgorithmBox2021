@@ -1,4 +1,4 @@
-package all;
+package stact_queue;
 
 import java.util.LinkedList;
 import java.util.Queue;
