@@ -11,33 +11,19 @@ public class SearchScore {
 	public static int[] solution(String[] info, String[] query) {
 		int[] answer = new int[query.length];
 
-		String[] Language = new String[info.length];
-		String[] part = new String[info.length];
-		String[] career = new String[info.length];
-		String[] food = new String[info.length];
-		String[] score = new String[info.length];
+		ArrayList<String[]> info_list = new ArrayList<>();
+		ArrayList<String[]> query_list = new ArrayList<>();
 
-		for(int i = 0; i < info.length; i++) {
-			
-			String[] str = info[i].split(" ");
-			Language[i] = str[0];
-			part[i] = str[1];
-			career[i] = str[2];
-			food[i] = str[3];
-			score[i] = str[4];
+		for(int i = 0; i < info.length; i++) {	
+			String[] info_str = info[i].split(" ");
+			info_list.add(info_str);
 		}
 		
 		for(int i = 0; i < query.length; i++) {
 			query[i].replaceAll(" and ", " ");
 			String[] query_str = query[i].split(" ");
 			
-			
-			
 		}
-		
-		
-		
-
 
 		return answer;
 	}
