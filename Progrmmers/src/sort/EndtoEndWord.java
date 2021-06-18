@@ -1,16 +1,19 @@
 package sort;
 
+import java.util.HashMap;
+
 public class EndtoEndWord {
 	public static int[] solution(int n, String[] words) {
 		int[] answer = {0,0};
-		String str = words[0] + ",";
+		HashMap<String, Integer> map = new HashMap<>();
+		map.put(words[0], null);
 		int count = 0;
 		for(int i = 1; i < words.length; i++) {
-			if(str.contains(","+words[i]) || !words[i-1].substring(words[i-1].length() - 1).equals(words[i].substring(0,1))) {
+			if(map.containsKey(words[i]) || words[i-1].charAt(words[i-1].length() - 1) != words[i].charAt(0)) {
 				count = i+1;
 				break;
 			} 
-			str += words[i] + ",";
+			map.put(words[i], null);
 		}
 
 		System.out.println(count);
@@ -24,7 +27,7 @@ public class EndtoEndWord {
 
 	public static void main(String[] args) {
 		int n = 6;
-		String[] words = {"hello", "observe", "heffect", "take", "either", "recognize", "encourage", "ensure", "establish", "hang", "gather", "refer", "reference", "estimate", "executive"};
+		String[] words = {"awawa", "awah", "heffecta", "awawa", "either", "recognize", "encourage", "ensure", "establish", "hang", "gather", "refer", "reference", "estimate", "executive"};
 	
 		int[] result = solution(n, words);
 
