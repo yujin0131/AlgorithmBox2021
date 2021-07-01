@@ -1,4 +1,4 @@
-package dijkstra;
+package bfs_dfs;
 
 public class Dijkstra {
 	private static int n;
