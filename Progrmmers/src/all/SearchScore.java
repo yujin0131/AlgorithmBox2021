@@ -5,28 +5,27 @@ import java.util.Arrays;
 import java.util.List;
 
 
-
 public class SearchScore {
 
 	public static int[] solution(String[] info, String[] query) {
-int[] answer = new int[query.length];
-        
-        for(int i = 0; i < info.length; i++) {
-        	String[] info_str = info[i].split(" ");
-        	mid : for(int j = 0; j < query.length; j++) {
-        		String[] query_str = query[j].split(" ");
-        		int num = 0;
-        		for(int count = 0; count < info_str.length; count++) {
-        			if(info_str[count].equals(query_str[num]) || query_str[num].equals("-") ||(num == 7 && Integer.parseInt(info_str[count]) > Integer.parseInt(query_str[num]))) {
-        				num = num != 6 ? num+2 : num+1;
-        			}else continue mid;
-        			
-        		}
-        		answer[j] += 1;
-        	}
-        }
-        
-        return answer;
+		int[] answer = new int[query.length];
+
+		for(int i = 0; i < info.length; i++) {
+			String[] info_str = info[i].split(" ");
+			mid : for(int j = 0; j < query.length; j++) {
+				String[] query_str = query[j].split(" ");
+				int num = 0;
+				for(int count = 0; count < info_str.length; count++) {
+					if(info_str[count].equals(query_str[num]) || query_str[num].equals("-") ||(num == 7 && Integer.parseInt(info_str[count]) > Integer.parseInt(query_str[num]))) {
+						num = num != 6 ? num+2 : num+1;
+					}else continue mid;
+
+				}
+				answer[j] += 1;
+			}
+		}
+
+		return answer;
 	}
 
 	public static void main(String[] args) {
