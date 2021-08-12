@@ -1,20 +1,31 @@
 package greedy;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BigNumber {
 	public static String solution(String number, int k) {
-		StringBuffer numstr = new StringBuffer(number);
-		int start = 0;
-		int end = numstr.length() - k;
-		while(k-- > 0) {
-			int max = 0;
-			for(int i = start; i < end; i++) {
-				if(numstr.charAt(i) > max) {
-					
-				}
-			}
+		 String answer = "";
+		 int size = number.length();
+		 Queue<Integer> number_q = new LinkedList<>();
+		 int count = 0;
+		 for(int i = 0; i < size; i++) {
+			 if(count == k) {
+				 answer += number.substring(i);
+				 break;
+			 }
+			 
+			 number_q.add(number.charAt(i)-'0');
+			 
+			 if(answer.charAt(answer.length()-1) - '0' < number_q.peek()) {
+				 while(count < k) {
+					 
+				 }
+			 }
+			 answer += number_q.poll();
 			
-		}
-		return numstr.toString();
+		 }
+	     return answer;
 	}
 
 	public static void main(String[] args) {
@@ -45,4 +56,7 @@ while(k-- > 0) {
 }
 return numstr.toString();
 }
+
+
+
  */
