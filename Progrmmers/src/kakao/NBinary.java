@@ -32,7 +32,7 @@ public class NBinary {//n : 진법, t : 미리 구할 숫자 갯수, m : 참가�
         	}else if(count >= n) {
         		int num = count;
         		while( num / n >= n) {
-        			num 
+        			//num 
         		}
         		str += count % n;
         	}else {
