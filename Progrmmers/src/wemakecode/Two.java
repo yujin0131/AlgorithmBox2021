@@ -7,8 +7,6 @@ import java.util.HashMap;
 public class Two {
 	
 	 public static String[] solution(String[] code) {
-	        
-
 	        HashMap<String, String> map = new HashMap<>();
 	        ArrayList<String> list = new ArrayList<>();
 	        int size = code.length;
