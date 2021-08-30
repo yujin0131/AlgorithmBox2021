@@ -31,27 +31,16 @@ public class Three {
 
 		int start = 0;
 		int count = 0;
-		while(now < list.size()) {//
-			System.out.println("==========");
-			for(int i = 0; i < resArr.length; i++) {
-				System.out.print(resArr[i] + " ");
-			}
-			System.out.println();
-			System.out.println("============" + answer);
+		while(now < list.size()) {
 			
 			int check = 0;
 			for(int i = start; i < size; i++) {
 				
-				System.out.println(arr[i] + " " + list.get(now));
-			
-				if(check == 1 && arr[i] > list.get(now)){
-					
-				}else if(arr[i] >= list.get(now)) {
+				if(!(check == 1 && arr[i] > list.get(now)) && arr[i] >= list.get(now)) {
 					resArr[i] = list.get(now);
 					if(i+1 == size) answer++;
 					check = 2;
 				}else if(check == 2 ){
-					System.out.println("fff");
 					answer++;
 					check = 1;
 					
@@ -59,7 +48,6 @@ public class Three {
 				
 			
 				if(i+1 == size) {
-					System.out.println("오나1 " + i);
 					start = 0;
 					now++;
 				}
@@ -71,15 +59,12 @@ public class Three {
 			
 		}
 
-		for(int i = 0; i < resArr.length; i++) {
-			System.out.print(resArr[i] + " ");
-		}
-		System.out.println();
+
 		return answer;
 	}
 	// 1  2  4  8
 	public static void main(String[] args) {
-		int[] arr = {1,3,5,7,6,8,9,5,1};
+		int[] arr = {5, 4, 5, 4, 5, 5};
 		int result = solution(arr);
 		System.out.println(result);
 	}

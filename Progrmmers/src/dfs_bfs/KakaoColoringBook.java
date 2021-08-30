@@ -1,6 +1,6 @@
 package dfs_bfs;
 
-public class KakaoCallaringbook {
+public class KakaoColoringBook {
 
 	static int numberOfArea = 0;
 	static int maxSizeOfOneArea = 0;
@@ -48,14 +48,10 @@ public class KakaoCallaringbook {
 				cnt = 0;
 			}
 		}
-		bfs(picture, picCheck, m, n, x, y);
-
 
 		int[] answer = new int[2];
 		answer[0] = numberOfArea;
 		answer[1] = maxSizeOfOneArea;
-
-
 
 		return answer;
 	}
