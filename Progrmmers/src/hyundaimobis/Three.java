@@ -20,13 +20,7 @@ public class Three {
 				for(int a = 0; a < list.size(); a++) {
 					hap = hap & list.get(a);
 				}
-				001
-				010
-				011
-				100
-				101
-				110
-				111
+			
 				if(hap == 0) break;
 				
 			}

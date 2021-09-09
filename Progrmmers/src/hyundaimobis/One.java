@@ -6,54 +6,54 @@ import java.util.Arrays;
 public class One {
 
 	public static int solution(int[][] dice) {
-        int answer = 1;
-        int size = dice.length;
-        int num = 10;
-        
-        ArrayList<Integer>[] list = new ArrayList[10];
-        for(int i = 0; i < 10; i++) {
-        	list[i] = new ArrayList<>();
-        }
-        for(int i = 0; i < size; i++) {
-        	for(int j = 0; j < 6; j++) {
-        		list[dice[i][j]].add(i+1);
-        	}
-        }
-        System.out.println("========");
-        for(int i = 0; i < list.length; i++) {
-        	for(int j = 0; j < list[i].size(); j++) {
-        		System.out.print(list[i].get(j) + " ");
-        	}
-        	System.out.println();
-        }
-        while(true) {
-        	if(answer < 10) {
-        		if(list[answer].size() == 0 ) {
-        			break;
-        		}else answer++;
-        		
-        	}
-        	
-        	answer++;
-        	break;
-        }
-        for(int i = 0; i < size; i++) {
-        	for(int j = 0; j <dice[i].length; j++) {
-        		System.out.print(dice[i][j] + " ");
-        		
-        	}
-        	System.out.println();
-        }
-        return answer;
-    }
-	
+		int answer = 1;
+		int size = dice.length;
+		int num = 10;
+
+		ArrayList<Integer>[] list = new ArrayList[10];
+		for(int i = 0; i < 10; i++) {
+			list[i] = new ArrayList<>();
+		}
+		for(int i = 0; i < size; i++) {
+			for(int j = 0; j < 6; j++) {
+				list[dice[i][j]].add(i+1);
+			}
+		}
+		System.out.println("========");
+		for(int i = 0; i < list.length; i++) {
+			for(int j = 0; j < list[i].size(); j++) {
+				System.out.print(list[i].get(j) + " ");
+			}
+			System.out.println();
+		}
+		while(true) {
+			if(answer < 10) {
+				if(list[answer].size() == 0 ) {
+					break;
+				}else answer++;
+
+			}
+
+			answer++;
+			break;
+		}
+		for(int i = 0; i < size; i++) {
+			for(int j = 0; j <dice[i].length; j++) {
+				System.out.print(dice[i][j] + " ");
+
+			}
+			System.out.println();
+		}
+		return answer;
+	}
+
 	public static void main(String[] args) {
-		
+
 		int[][] dice = {{2, 6, 2, 5, 3, 4}, {9, 9, 2, 0, 7, 8}};
 		//int[][] dice = {{0, 1, 5, 3, 9, 2},{2, 1, 3, 4, 8, 7},{6, 3, 4, 7, 6, 5}};
 		int result = solution(dice);
 		System.out.println(result);
-	
+
 	}
 }
 
@@ -92,4 +92,3 @@ dice	result
 
 주사위를 굴려 1 ~ 65까지 모두 만들 수 있습니다. 하지만 어떠한 방법으로도 66을 만들 수는 없습니다. 따라서 정답은 66입니다.
  */
-*/
