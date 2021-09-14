@@ -23,7 +23,7 @@ public class Two {
 			System.out.println(isNum);
 			if(isNum == 1) continue outer;
 			System.out.println("오니");
-			for(int j = 2; j < isNum/2; j++) {
+			for(int j = 2; j < Math.sqrt(isNum); j++) {
 				if(isNum % j == 0) {
 					continue outer;
 				}
