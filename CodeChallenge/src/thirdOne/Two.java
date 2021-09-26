@@ -26,17 +26,13 @@ public class Two {
 		int[] dy = { -1, 0, 1, 0};
 		ArrayList<Integer> list = new ArrayList<>();
 		while(true) {
-			System.out.println("lll" +re);
 			if(row==1 && col==1) {
-				System.out.println("!!!!!!!!!!!!!!!1" +count);
 				if(light[count] == true) {
-					System.out.println("??" +re);
 					list.add(re);
 					re = 0;
 					count = ++num;
 					row = 1;
 					col = 1;
-					System.out.println("ㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱ"+count);
 					if(light[0] == true && light[1] == true && light[2] == true && light[3] == true ) break;
 				}else {				
 					light[count] = true;
@@ -45,7 +41,6 @@ public class Two {
 				
 			}
 
-			System.out.println(row + " ,,,,,,,,,,,,,,,,,,,," +col + map[row][col]);
 			switch (map[row][col]) {
 
 			case "L":
@@ -66,7 +61,7 @@ public class Two {
 			}	
 			System.out.println("row " + row + " col " +col);
 			System.out.println(count + " /" + (col + dx[count]) + " / " + (row + dy[count]));
-			System.out.println(row + " " + grid[0].length()+1);
+			
 			if(col + dx[count] == 0) {
 				col = grid[0].length()+1;
 				System.out.println("여기?1");
@@ -86,7 +81,6 @@ public class Two {
 			col += dx[count];
 			
 			re++;
-			System.out.println("reeeeeeeeeeeeeeeee"+re);
 		}
 
 		int[] answer = new int[list.size()];
@@ -104,7 +98,7 @@ public class Two {
 		//		int result = solution();
 		//		System.out.println(result);
 		//		
-		String[] grid = {"R","R"};
+		String[] grid = {"SL","LR"};
 		int[] result = solution(grid);
 		for(int i = 0; i < result.length; i++) {
 			System.out.print(result[i] +" ");
