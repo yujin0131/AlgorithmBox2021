@@ -1,6 +1,7 @@
 package heap;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Hoter {
 
@@ -10,6 +11,26 @@ public class Hoter {
 		for(int temp : scoville) {
 			list.add(temp);
 		}
+
+		int min = 0;
+		while(min <= K) {
+			min = Collections.min(list);
+			int index = list.indexOf(min);
+			list.remove(index);
+			int next_min = Collections.min(list);
+			int next_index = list.indexOf(next_min);
+			
+			min = min + (next_min * 2);
+			list.remove(next_index);
+			list.add(min);
+			
+			answer++;
+			if(list.size() == 1 && list.get(0) < K) {
+				answer = -1;
+				break;
+			}
+		}
+			
 		return answer;
 	}
 	
