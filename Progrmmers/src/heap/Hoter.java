@@ -1,42 +1,33 @@
 package heap;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.PriorityQueue;
 
 public class Hoter {
 
 	public static int solution(int[] scoville, int K) {
 		int answer = 0;
-		ArrayList<Integer> list = new ArrayList<>();
-		for(int temp : scoville) {
-			list.add(temp);
+		PriorityQueue<Integer> queue = new PriorityQueue<Integer>();
+		for(int sco : scoville) {
+			queue.add(sco);
 		}
 
-		int min = 0;
-		while(min <= K) {
-			min = Collections.min(list);
-			int index = list.indexOf(min);
-			list.remove(index);
-			int next_min = Collections.min(list);
-			int next_index = list.indexOf(next_min);
-			
-			min = min + (next_min * 2);
-			list.remove(next_index);
-			list.add(min);
-			
+		int reSco = 0;
+		while(queue.peek() < K && queue.size() > 1) {
+			reSco = queue.poll() + queue.poll() * 2;
+			queue.add(reSco);
 			answer++;
-			if(list.size() == 1 && list.get(0) < K) {
-				answer = -1;
-				break;
-			}
 		}
-			
+		
+		answer = queue.peek() < K ? -1 : answer;
 		return answer;
 	}
 	
 	public static void main(String[] args) {
-		int[] scoville = {1,2,3,9,10,12};
-		int K = 7;
+		int[] scoville = {1,2,3};
+		int K = 11;
 		int result = solution(scoville, K);
 		System.out.println(result);
 	}
